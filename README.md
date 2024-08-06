@@ -20,8 +20,6 @@ pip install ulda
 
 ## Example
 
-Showcase how your project can be used:
-
 ```python
 import numpy as np
 from ulda import ULDA
