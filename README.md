@@ -1,16 +1,16 @@
 # ulda
 
-[![Build Status](https://github.com/Moran79/ulda/workflows/test/badge.svg?branch=master&event=push)](https://github.com/Moran79/ulda/actions?query=workflow%3Atest)
-[![codecov](https://codecov.io/gh/Moran79/ulda/branch/master/graph/badge.svg)](https://codecov.io/gh/Moran79/ulda)
-[![Python Version](https://img.shields.io/pypi/pyversions/ulda.svg)](https://pypi.org/project/ulda/)
-[![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide)
+<!-- [![Build Status](https://github.com/Moran79/ulda/workflows/test/badge.svg?branch=master&event=push)](https://github.com/Moran79/ulda/actions?query=workflow%3Atest) -->
 
-Uncorrelated Linear Discriminant Analysis
+<!-- [![codecov](https://codecov.io/gh/Moran79/ulda/branch/master/graph/badge.svg)](https://codecov.io/gh/Moran79/ulda) -->
+[![Python Version](https://img.shields.io/pypi/pyversions/ulda.svg)](https://pypi.org/project/ulda/)
+
+Uncorrelated Linear Discriminant Analysis (ULDA), modified based on Ye, J., & Yu, B. (2005).
 
 ## Features
 
-- Fully typed with annotations and checked with mypy, [PEP561 compatible](https://www.python.org/dev/peps/pep-0561/)
-- Add yours!
+- Provide a more robust LDA module compared to one in `sklearn`, especially when handling perfect separation in high-dimensional data.
+- Faster performance.
 
 ## Installation
 
@@ -23,16 +23,11 @@ pip install ulda
 Showcase how your project can be used:
 
 ```python
-from ulda.example import some_function
-
-print(some_function(3, 4))
-# => 7
+import numpy as np
+from ulda import ULDA
+X = np.array([[0, 0], [0,1], [1, 1], [1, 2], [2, 2], [2, 3]])
+y = np.array(['A', 'A', 'B', 'B', 'C', 'C'])
+lda = ULDA()
+lda.fit(X, y)
+print(lda.predict([[1, 3]]))
 ```
-
-## License
-
-[bsd3](https://github.com/Moran79/ulda/blob/master/LICENSE)
-
-## Credits
-
-This project was generated with [`wemake-python-package`](https://github.com/wemake-services/wemake-python-package). Current template version is: [b90f0dff9076b08fe3259c870983de21f8e78c23](https://github.com/wemake-services/wemake-python-package/tree/b90f0dff9076b08fe3259c870983de21f8e78c23). See what is [updated](https://github.com/wemake-services/wemake-python-package/compare/b90f0dff9076b08fe3259c870983de21f8e78c23...master) since then.
